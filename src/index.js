@@ -32,7 +32,7 @@ document.body.innerHTML = `<div class="wrapper">
         <div class="keyboard__key key"><span class="key__text">p</span></div>
         <div class="keyboard__key key"><span class="key__text">&#123;</span></div>
         <div class="keyboard__key key"><span class="key__text">&#125;</span></div>
-        <div class="keyboard__key key"><span class="key__text">\</span></div>
+        <div class="keyboard__key key"><span class="key__text">\\</span></div>
     </div>
     <div class="keyboard__row">
         <div class="keyboard__key key key_capslock key_functional"><span class="key__text">caps lock</span>
@@ -83,3 +83,17 @@ document.body.innerHTML = `<div class="wrapper">
 <p class="system">Клавиатура создана в операционной системе Mac OS</p>
 <p class="language">Для переключения языка комбинация: левыe Ctrl + Alt</p>
 </div>`
+
+let keyboard = document.querySelector('.keyboard');
+
+function pressKey(evt) {
+    if (evt.target.classList.contains('key__text')) {
+        evt.target.parentElement.classList.add('key__pressed');
+    }
+
+    document.addEventListener('mouseup', () => {
+        evt.target.parentElement.classList.remove('key__pressed');
+    })
+}
+
+keyboard.addEventListener('mousedown', pressKey);
