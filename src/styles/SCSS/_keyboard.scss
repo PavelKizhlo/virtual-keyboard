@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    color: dimgray;
+    font-family: 'Roboto', sans-serif;
+}
+
+.textarea {
+    display: block;
+    width: 800px;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 1vh;
+    border-width: 2px;
+    background-color: #eee6de;
+    font-size: 24px;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.keyboard {
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-top: 25px;
+    border-radius: 9px;
+    margin-bottom: 2vh;
+    background-color: #f4d8bb;
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 9px;
+    }
+
+    &__arrow-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 3px 3px;
+        grid-template-areas:
+            ". up ."
+            "left down right";
+    }
+}
+
+.key {
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 1px rgba(34, 60, 80, 0.2);
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+    &:hover {
+        background-color: #daeeff;
+    }
+
+    &__pressed {
+        animation-name: pressing;
+        animation-duration: 0.1s;
+        animation-fill-mode: forwards;
+    }
+
+    &__text {
+        display: block;
+        text-align: center;
+        line-height: 45px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    &_functional {
+        .key__text {
+            font-size: 13px;
+        }
+    }
+
+    &_delete {
+        width: 78px;
+    }
+
+    &_tab {
+        width: 78px;
+    }
+
+    &_capslock {
+        width: 90px;
+    }
+
+    &_return {
+        width: 87px;
+    }
+
+    &_shift {
+        width: 115px;
+    }
+
+    &_command {
+        width: 70px;
+    }
+
+    &_space {
+        width: 256px;
+    }
+
+    &_arrow {
+        height: 21px;
+
+        .key__text {
+            line-height: 21px;
+        }
+    }
+}
+
+.arrow {
+    &-up {
+        grid-area: up;
+    }
+
+    &-left {
+        grid-area: left;
+    }
+
+    &-down {
+        grid-area: down;
+    }
+
+    &-right {
+        grid-area: right;
+    }
+}
+
+.system {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.language {
+    text-align: center;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
