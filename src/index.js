@@ -1,24 +1,25 @@
 class Key {
-    constructor(name, isFunctional) {
+    constructor(name, isFunctional, code) {
         this.name = name;
         this.isFunctional = isFunctional;
+        this.code = code;
     }
 }
 
 function createKey(keyObj) {
+    const alphabetEn = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+        'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+        'y', 'z'];
+
     let key = document.createElement('div');
     key.classList.add('key');
 
-    if (keyObj.isFunctional) {
-        if (keyObj.name.includes('arr;')) {
-            key.classList.add('key_functional', 'key_arrow');
-            keyObj.name === '&uarr;' ? key.classList.add('arrow-up') : key;
-            keyObj.name === '&larr;' ? key.classList.add('arrow-left') : key;
-            keyObj.name === '&darr;' ? key.classList.add('arrow-down') : key;
-            keyObj.name === '&rarr;' ? key.classList.add('arrow-right') : key;
-        } else {
-            key.classList.add('key_functional', `key_${keyObj.name}`);
-        }
+    if (alphabetEn.includes(keyObj.name)) {
+        key.classList.add(`Key${keyObj.name.toUpperCase()}`);
+    } else if (typeof (+keyObj.name) === 'number' && !isNaN(+keyObj.name)) {
+        key.classList.add(`Digit${keyObj.name}`);
+    } else {
+        key.classList.add(`${keyObj.code}`);
     }
 
     let keyText = document.createElement('span');
@@ -60,14 +61,14 @@ function createPage() {
 <textarea class="textarea" id="textarea" cols="52" rows="5"></textarea>
 <div class="keyboard"></div>
 <p class="system">Клавиатура создана в операционной системе Mac OS</p>
-<p class="language">Для переключения языка комбинация: левыe Ctrl + Alt</p>
+<p class="language">Для переключения языка: комбинация Ctrl + Space <br> или клавиша Fn (доступна только для клика, так как не распознаётся приложениями)</p>
 </div>`;
 
     let keyboard = document.querySelector('.keyboard');
 
     const firstRow = [], secondRow = [], thirdRow = [], fourthRow = [], fithRow = [], arrowBlock = [];
 
-    firstRow.push(new Key('`', false));
+    firstRow.push(new Key('`', false, 'Backquote'));
     firstRow.push(new Key('1', false));
     firstRow.push(new Key('2', false));
     firstRow.push(new Key('3', false));
@@ -78,11 +79,11 @@ function createPage() {
     firstRow.push(new Key('8', false));
     firstRow.push(new Key('9', false));
     firstRow.push(new Key('0', false));
-    firstRow.push(new Key('&minus;', false));
-    firstRow.push(new Key('&plus;', false));
-    firstRow.push(new Key('delete', true));
+    firstRow.push(new Key('&minus;', false, 'Minus'));
+    firstRow.push(new Key('=', false, 'Equal'));
+    firstRow.push(new Key('delete', true, 'Backspace'));
 
-    secondRow.push(new Key('tab', true));
+    secondRow.push(new Key('tab', true, 'Tab'));
     secondRow.push(new Key('q', false));
     secondRow.push(new Key('w', false));
     secondRow.push(new Key('e', false));
@@ -93,11 +94,11 @@ function createPage() {
     secondRow.push(new Key('i', false));
     secondRow.push(new Key('o', false));
     secondRow.push(new Key('p', false));
-    secondRow.push(new Key('&#123;', false));
-    secondRow.push(new Key('&#125;', false));
-    secondRow.push(new Key('\\', false));
+    secondRow.push(new Key('[', false, 'BracketLeft'));
+    secondRow.push(new Key(']', false, 'BracketRight'));
+    secondRow.push(new Key('\\', false, 'Backslash'));
 
-    thirdRow.push(new Key('capslock', true));
+    thirdRow.push(new Key('capslock', true, 'CapsLock'));
     thirdRow.push(new Key('a', false));
     thirdRow.push(new Key('s', false));
     thirdRow.push(new Key('d', false));
@@ -107,11 +108,11 @@ function createPage() {
     thirdRow.push(new Key('j', false));
     thirdRow.push(new Key('k', false));
     thirdRow.push(new Key('l', false));
-    thirdRow.push(new Key(';', false));
-    thirdRow.push(new Key('\'', false));
-    thirdRow.push(new Key('return', true));
+    thirdRow.push(new Key(';', false, 'Semicolon'));
+    thirdRow.push(new Key('\'', false, 'Quote'));
+    thirdRow.push(new Key('return', true, 'Enter'));
 
-    fourthRow.push(new Key('shift', true));
+    fourthRow.push(new Key('shift', true, 'ShiftLeft'));
     fourthRow.push(new Key('z', false));
     fourthRow.push(new Key('x', false));
     fourthRow.push(new Key('c', false));
@@ -119,22 +120,22 @@ function createPage() {
     fourthRow.push(new Key('b', false));
     fourthRow.push(new Key('n', false));
     fourthRow.push(new Key('m', false));
-    fourthRow.push(new Key('&lt;', false));
-    fourthRow.push(new Key('&gt;', false));
-    fourthRow.push(new Key('/', false));
-    fourthRow.push(new Key('shift', true));
+    fourthRow.push(new Key(',', false, 'Comma'));
+    fourthRow.push(new Key('.', false, 'Period'));
+    fourthRow.push(new Key('/', false, 'Slash'));
+    fourthRow.push(new Key('shift', true, 'ShiftRight'));
 
-    fithRow.push(new Key('fn', true));
-    fithRow.push(new Key('control', true));
-    fithRow.push(new Key('option', true));
-    fithRow.push(new Key('command', true));
-    fithRow.push(new Key('space', true));
-    fithRow.push(new Key('command', true));
-    fithRow.push(new Key('option', true));
-    arrowBlock.push(new Key('&uarr;', true));
-    arrowBlock.push(new Key('&larr;', true));
-    arrowBlock.push(new Key('&darr;', true));
-    arrowBlock.push(new Key('&rarr;', true));
+    fithRow.push(new Key('fn', true, 'Fn'));
+    fithRow.push(new Key('control', true, 'ControlLeft'));
+    fithRow.push(new Key('option', true, 'AltLeft'));
+    fithRow.push(new Key('command', true, 'MetaLeft'));
+    fithRow.push(new Key('space', true, 'Space'));
+    fithRow.push(new Key('command', true, 'MetaRight'));
+    fithRow.push(new Key('option', true, 'AltRight'));
+    arrowBlock.push(new Key('&uarr;', true, 'ArrowUp'));
+    arrowBlock.push(new Key('&larr;', true, 'ArrowLeft'));
+    arrowBlock.push(new Key('&darr;', true, 'ArrowDown'));
+    arrowBlock.push(new Key('&rarr;', true, 'ArrowRight'));
     fithRow.push(createArrowBlock(arrowBlock));
 
     keyboard.append(createRow(firstRow));
@@ -149,13 +150,33 @@ createPage()
 let keyboard = document.querySelector('.keyboard');
 
 function pressKey(evt) {
-    if (evt.target.classList.contains('key__text')) {
-        evt.target.parentElement.classList.add('key__pressed');
-    }
+    if (evt instanceof MouseEvent) {
+        if (evt.target.classList.contains('key__text')) {
+            evt.target.parentElement.classList.add('key__pressed');
 
-    document.addEventListener('mouseup', () => {
-        evt.target.parentElement.classList.remove('key__pressed');
-    })
+            document.addEventListener('mouseup', () => {
+                evt.target.parentElement.classList.remove('key__pressed');
+            })
+        }
+    };
+
+    if (evt instanceof KeyboardEvent) {
+        let pressedKey = document.querySelector(`.${evt.code}`);
+        if (pressedKey) {
+            pressedKey.classList.add('key__pressed');
+
+            window.addEventListener('keyup', () => {
+                pressedKey.classList.remove('key__pressed');
+            })
+        }
+    }
 }
 
 keyboard.addEventListener('mousedown', pressKey);
+
+
+
+window.addEventListener('keydown', pressKey);
+window.addEventListener('keydown', (e) => {
+    console.log(e.code)
+});

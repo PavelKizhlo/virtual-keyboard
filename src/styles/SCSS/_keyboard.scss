@@ -83,65 +83,93 @@
         font-family: 'Roboto', sans-serif;
         user-select: none;
     }
+}
 
-    &_functional {
-        .key__text {
-            font-size: 13px;
-        }
-    }
+.Backspace {
+    width: 78px;
+    font-size: 13px;
+}
 
-    &_delete {
-        width: 78px;
-    }
+.Tab {
+    width: 78px;
+    font-size: 13px;
+}
 
-    &_tab {
-        width: 78px;
-    }
+.CapsLock {
+    width: 90px;
+    font-size: 13px;
+}
 
-    &_capslock {
-        width: 90px;
-    }
+.Enter {
+    width: 87px;
+    font-size: 13px;
+}
 
-    &_return {
-        width: 87px;
-    }
+.ShiftLeft,
+.ShiftRight {
+    width: 115px;
+    font-size: 13px;
+}
 
-    &_shift {
-        width: 115px;
-    }
+.Fn {
+    font-size: 13px;
+}
 
-    &_command {
-        width: 70px;
-    }
+.ControlLeft {
+    font-size: 13px;
+}
 
-    &_space {
-        width: 256px;
-    }
+.AltLeft,
+.AltRight {
+    font-size: 13px;
+}
 
-    &_arrow {
+.MetaRight,
+.MetaLeft {
+    width: 70px;
+    font-size: 13px;
+}
+
+.Space {
+    width: 256px;
+    font-size: 0;
+}
+
+.Arrow {
+    &Up {
+        grid-area: up;
         height: 21px;
 
         .key__text {
             line-height: 21px;
         }
     }
-}
 
-.arrow {
-    &-up {
-        grid-area: up;
-    }
-
-    &-left {
+    &Left {
         grid-area: left;
+        height: 21px;
+
+        .key__text {
+            line-height: 21px;
+        }
     }
 
-    &-down {
+    &Down {
         grid-area: down;
+        height: 21px;
+
+        .key__text {
+            line-height: 21px;
+        }
     }
 
-    &-right {
+    &Right {
         grid-area: right;
+        height: 21px;
+
+        .key__text {
+            line-height: 21px;
+        }
     }
 }
 

@@ -107,68 +107,98 @@
           user-select: none;
 }
 
-.key_functional .key__text {
+.Backspace {
+  width: 78px;
   font-size: 13px;
 }
 
-.key_delete {
+.Tab {
   width: 78px;
+  font-size: 13px;
 }
 
-.key_tab {
-  width: 78px;
-}
-
-.key_capslock {
+.CapsLock {
   width: 90px;
+  font-size: 13px;
 }
 
-.key_return {
+.Enter {
   width: 87px;
+  font-size: 13px;
 }
 
-.key_shift {
+.ShiftLeft,
+.ShiftRight {
   width: 115px;
+  font-size: 13px;
 }
 
-.key_command {
+.Fn {
+  font-size: 13px;
+}
+
+.ControlLeft {
+  font-size: 13px;
+}
+
+.AltLeft,
+.AltRight {
+  font-size: 13px;
+}
+
+.MetaRight,
+.MetaLeft {
   width: 70px;
+  font-size: 13px;
 }
 
-.key_space {
+.Space {
   width: 256px;
+  font-size: 0;
 }
 
-.key_arrow {
-  height: 21px;
-}
-
-.key_arrow .key__text {
-  line-height: 21px;
-}
-
-.arrow-up {
+.ArrowUp {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: up;
+  height: 21px;
 }
 
-.arrow-left {
+.ArrowUp .key__text {
+  line-height: 21px;
+}
+
+.ArrowLeft {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: left;
+  height: 21px;
 }
 
-.arrow-down {
+.ArrowLeft .key__text {
+  line-height: 21px;
+}
+
+.ArrowDown {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: down;
+  height: 21px;
 }
 
-.arrow-right {
+.ArrowDown .key__text {
+  line-height: 21px;
+}
+
+.ArrowRight {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: right;
+  height: 21px;
+}
+
+.ArrowRight .key__text {
+  line-height: 21px;
 }
 
 .system {
@@ -198,8 +228,8 @@
             box-shadow: 0px 0px 4px 1px rgba(34, 60, 80, 0.2);
   }
   to {
-    -webkit-box-shadow: 0px 0px 3px 1px rgba(34, 60, 80, 0.3) inset;
-            box-shadow: 0px 0px 3px 1px rgba(34, 60, 80, 0.3) inset;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(23, 43, 99, 0.62) inset;
+            box-shadow: 0px 0px 5px 1px rgba(23, 43, 99, 0.62) inset;
   }
 }
 
@@ -209,8 +239,8 @@
             box-shadow: 0px 0px 4px 1px rgba(34, 60, 80, 0.2);
   }
   to {
-    -webkit-box-shadow: 0px 0px 3px 1px rgba(34, 60, 80, 0.3) inset;
-            box-shadow: 0px 0px 3px 1px rgba(34, 60, 80, 0.3) inset;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(23, 43, 99, 0.62) inset;
+            box-shadow: 0px 0px 5px 1px rgba(23, 43, 99, 0.62) inset;
   }
 }
 /*# sourceMappingURL=style.css.map */
