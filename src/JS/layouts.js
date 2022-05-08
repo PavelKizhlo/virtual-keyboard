@@ -3,74 +3,82 @@ import { createArrowBlock } from './create-elements';
 
 const firstRow = [], secondRow = [], thirdRow = [], fourthRow = [], fithRow = [], arrowBlock = [];
 
-firstRow.push(new Key('`', false, 'Backquote'));
-firstRow.push(new Key('1', false));
-firstRow.push(new Key('2', false));
-firstRow.push(new Key('3', false));
-firstRow.push(new Key('4', false));
-firstRow.push(new Key('5', false));
-firstRow.push(new Key('6', false));
-firstRow.push(new Key('7', false));
-firstRow.push(new Key('8', false));
-firstRow.push(new Key('9', false));
-firstRow.push(new Key('0', false));
-firstRow.push(new Key('&minus;', false, 'Minus'));
-firstRow.push(new Key('=', false, 'Equal'));
-firstRow.push(new Key('delete', true, 'Backspace'));
+firstRow.push(new Key('`', '~', 'ё', 'Ё', 'Backquote',));
+firstRow.push(new Key('1', '!', '1', '!'));
+firstRow.push(new Key('2', '@', '2', '"'));
+firstRow.push(new Key('3', '#', '3', '№'));
+firstRow.push(new Key('4', '$', '4', ';'));
+firstRow.push(new Key('5', '%', '5', '%'));
+firstRow.push(new Key('6', '^', '6', ':'));
+firstRow.push(new Key('7', '&', '7', '?'));
+firstRow.push(new Key('8', '*', '8', '*'));
+firstRow.push(new Key('9', '(', '9', '('));
+firstRow.push(new Key('0', ')', '0', ')'));
+firstRow.push(new Key('-', '_', '-', '_', 'Minus'));
+firstRow.push(new Key('=', '+', '=', '+', 'Equal'));
+firstRow.push(new Key('delete', 'delete', 'delete', 'delete', 'Backspace'));
 
-secondRow.push(new Key('tab', true, 'Tab'));
-secondRow.push(new Key('q', false));
-secondRow.push(new Key('w', false));
-secondRow.push(new Key('e', false));
-secondRow.push(new Key('r', false));
-secondRow.push(new Key('t', false));
-secondRow.push(new Key('y', false));
-secondRow.push(new Key('u', false));
-secondRow.push(new Key('i', false));
-secondRow.push(new Key('o', false));
-secondRow.push(new Key('p', false));
-secondRow.push(new Key('[', false, 'BracketLeft'));
-secondRow.push(new Key(']', false, 'BracketRight'));
-secondRow.push(new Key('\\', false, 'Backslash'));
+secondRow.push(new Key('tab', 'tab', 'tab', 'tab', 'Tab'));
+secondRow.push(new Key('q', 'Q', 'й', 'Й'));
+secondRow.push(new Key('w', 'W', 'ц', 'Ц'));
+secondRow.push(new Key('e', 'E', 'у', 'У'));
+secondRow.push(new Key('r', 'R', 'к', 'К'));
+secondRow.push(new Key('t', 'T', 'е', 'Е'));
+secondRow.push(new Key('y', 'Y', 'н', 'Н'));
+secondRow.push(new Key('u', 'U', 'г', 'Г'));
+secondRow.push(new Key('i', 'I', 'ш', 'Ш'));
+secondRow.push(new Key('o', 'O', 'щ', 'Щ'));
+secondRow.push(new Key('p', 'P', 'з', 'З'));
+secondRow.push(new Key('[', '{', 'х', 'Х', 'BracketLeft'));
+secondRow.push(new Key(']', '}', 'ъ', 'Ъ', 'BracketRight'));
+secondRow.push(new Key('\\', '/', '\\', '/', 'Backslash'));
 
-thirdRow.push(new Key('capslock', true, 'CapsLock'));
-thirdRow.push(new Key('a', false));
-thirdRow.push(new Key('s', false));
-thirdRow.push(new Key('d', false));
-thirdRow.push(new Key('f', false));
-thirdRow.push(new Key('g', false));
-thirdRow.push(new Key('h', false));
-thirdRow.push(new Key('j', false));
-thirdRow.push(new Key('k', false));
-thirdRow.push(new Key('l', false));
-thirdRow.push(new Key(';', false, 'Semicolon'));
-thirdRow.push(new Key('\'', false, 'Quote'));
-thirdRow.push(new Key('return', true, 'Enter'));
+thirdRow.push(new Key('capslock', 'capslock', 'capslock', 'capslock', 'CapsLock'));
+thirdRow.push(new Key('a', 'A', 'ф', 'Ф'));
+thirdRow.push(new Key('s', 'S', 'ы', 'Ы'));
+thirdRow.push(new Key('d', 'D', 'в', 'В'));
+thirdRow.push(new Key('f', 'F', 'а', 'А'));
+thirdRow.push(new Key('g', 'G', 'п', 'П'));
+thirdRow.push(new Key('h', 'H', 'р', 'Р'));
+thirdRow.push(new Key('j', 'J', 'о', 'О'));
+thirdRow.push(new Key('k', 'K', 'л', 'Л'));
+thirdRow.push(new Key('l', 'L', 'д', 'Д'));
+thirdRow.push(new Key(';', ':', 'ж', 'Ж', 'Semicolon'));
+thirdRow.push(new Key('\'', '"', 'э', 'Э', 'Quote'));
+thirdRow.push(new Key('return', 'return', 'return', 'return', 'Enter'));
 
-fourthRow.push(new Key('shift', true, 'ShiftLeft'));
-fourthRow.push(new Key('z', false));
-fourthRow.push(new Key('x', false));
-fourthRow.push(new Key('c', false));
-fourthRow.push(new Key('v', false));
-fourthRow.push(new Key('b', false));
-fourthRow.push(new Key('n', false));
-fourthRow.push(new Key('m', false));
-fourthRow.push(new Key(',', false, 'Comma'));
-fourthRow.push(new Key('.', false, 'Period'));
-fourthRow.push(new Key('/', false, 'Slash'));
-fourthRow.push(new Key('shift', true, 'ShiftRight'));
+fourthRow.push(new Key('shift', 'shift', 'shift', 'shift', 'ShiftLeft'));
+fourthRow.push(new Key('z', 'Z', 'я', 'Я'));
+fourthRow.push(new Key('x', 'X', 'ч', 'Ч'));
+fourthRow.push(new Key('c', 'C', 'с', 'С'));
+fourthRow.push(new Key('v', 'V', 'м', 'М'));
+fourthRow.push(new Key('b', 'B', 'и', 'И'));
+fourthRow.push(new Key('n', 'N', 'т', 'Т'));
+fourthRow.push(new Key('m', 'M', 'ь', 'Ь'));
+fourthRow.push(new Key(',', '<', 'б', 'Б', 'Comma'));
+fourthRow.push(new Key('.', '>', 'ю', 'Ю', 'Period'));
+fourthRow.push(new Key('/', '?', '.', ',', 'Slash'));
+fourthRow.push(new Key('shift', 'shift', 'shift', 'shift', 'ShiftRight'));
 
-fithRow.push(new Key('fn', true, 'Fn'));
-fithRow.push(new Key('control', true, 'ControlLeft'));
-fithRow.push(new Key('option', true, 'AltLeft'));
-fithRow.push(new Key('command', true, 'MetaLeft'));
-fithRow.push(new Key('space', true, 'Space'));
-fithRow.push(new Key('command', true, 'MetaRight'));
-fithRow.push(new Key('option', true, 'AltRight'));
-arrowBlock.push(new Key('&uarr;', true, 'ArrowUp'));
-arrowBlock.push(new Key('&larr;', true, 'ArrowLeft'));
-arrowBlock.push(new Key('&darr;', true, 'ArrowDown'));
-arrowBlock.push(new Key('&rarr;', true, 'ArrowRight'));
+fithRow.push(new Key('fn', 'fn', 'fn', 'fn', 'Fn'));
+fithRow.push(new Key('control', 'control', 'control', 'control', 'ControlLeft'));
+fithRow.push(new Key('option', 'option', 'option', 'option', 'AltLeft'));
+fithRow.push(new Key('command', 'command', 'command', 'command', 'MetaLeft'));
+fithRow.push(new Key('space', 'space', 'space', 'space', 'Space'));
+fithRow.push(new Key('command', 'command', 'command', 'command', 'MetaRight'));
+fithRow.push(new Key('option', 'option', 'option', 'option', 'AltRight'));
+arrowBlock.push(new Key('&uarr;', '&uarr;', '&uarr;', '&uarr;', 'ArrowUp'));
+arrowBlock.push(new Key('&larr;', '&larr;', '&larr;', '&larr;', 'ArrowLeft'));
+arrowBlock.push(new Key('&darr;', '&darr;', '&darr;', '&darr;', 'ArrowDown'));
+arrowBlock.push(new Key('&rarr;', '&rarr;', '&rarr;', '&rarr;', 'ArrowRight'));
 fithRow.push(createArrowBlock(arrowBlock));
 
 export { firstRow, secondRow, thirdRow, fourthRow, fithRow, arrowBlock };
+
+// const rows = [
+//     ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '&minus;', '=', 'delete'],
+//     ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
+//     ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'return'],
+//     ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
+//     ['fn', 'control', 'option', 'command', 'space', 'command', 'option']
+// ]

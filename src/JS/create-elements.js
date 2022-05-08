@@ -9,19 +9,49 @@ function createKey(keyObj) {
     let key = document.createElement('div');
     key.classList.add('key');
 
-    if (alphabetEn.includes(keyObj.name)) {
-        key.classList.add(`Key${keyObj.name.toUpperCase()}`);
-    } else if (typeof (+keyObj.name) === 'number' && !isNaN(+keyObj.name)) {
-        key.classList.add(`Digit${keyObj.name}`);
+    let keyEng = document.createElement('div');
+    keyEng.classList.add('eng');
+
+    let keyRus = document.createElement('div');
+    keyRus.classList.add('rus', 'hidden');
+
+    key.append(keyEng);
+    key.append(keyRus);
+
+    if (alphabetEn.includes(keyObj.engCaseDown)) {
+        key.classList.add(`Key${keyObj.engCaseDown.toUpperCase()}`);
+        key.setAttribute('data-code', `Key${keyObj.engCaseDown.toUpperCase()}`);
+    } else if (typeof (+keyObj.engCaseDown) === 'number' && !isNaN(+keyObj.engCaseDown)) {
+        key.classList.add(`Digit${keyObj.engCaseDown}`);
+        key.setAttribute('data-code', `Digit${keyObj.engCaseDown}`);
     } else {
-        key.classList.add(`${keyObj.code}`);
+        key.classList.add(`${keyObj.code}`, 'func');
+        key.setAttribute('data-code', `${keyObj.code}`);
     }
 
-    let keyText = document.createElement('span');
-    keyText.classList.add('key__text');
-    keyText.innerHTML = keyObj.name;
+    let keyTextEng = document.createElement('span');
+    keyTextEng.classList.add('key__text', 'case-down');
+    keyTextEng.innerHTML = keyObj.engCaseDown;
 
-    key.append(keyText);
+    keyEng.append(keyTextEng);
+
+    let keyTextEngUp = document.createElement('span');
+    keyTextEngUp.classList.add('key__text', 'case-up', 'hidden');
+    keyTextEngUp.innerHTML = keyObj.engCaseUp;
+
+    keyEng.append(keyTextEngUp);
+
+    let keyTextRus = document.createElement('span');
+    keyTextRus.classList.add('key__text', 'case-down');
+    keyTextRus.innerHTML = keyObj.rusCaseDown;
+
+    keyRus.append(keyTextRus);
+
+    let keyTextRusUp = document.createElement('span');
+    keyTextRusUp.classList.add('key__text', 'case-up', 'hidden');
+    keyTextRusUp.innerHTML = keyObj.rusCaseUp;
+
+    keyRus.append(keyTextRusUp);
 
     return key;
 }

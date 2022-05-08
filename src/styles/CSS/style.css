@@ -222,6 +222,10 @@
           user-select: none;
 }
 
+.hidden {
+  display: none;
+}
+
 @-webkit-keyframes pressing {
   from {
     -webkit-box-shadow: 0px 0px 4px 1px rgba(34, 60, 80, 0.2);
