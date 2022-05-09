@@ -10,9 +10,14 @@ const fn = document.querySelector('.Fn');
 const ShiftLeft = document.querySelector('.ShiftLeft');
 const ShiftRight = document.querySelector('.ShiftRight');
 const capsLock = document.querySelector('.CapsLock');
+const ctrl = document.querySelector('.ControlLeft');
+const space = document.querySelector('.Space');
 
 textarea.focus();
 textarea.addEventListener('blur', () => textarea.focus());
+textarea.addEventListener('keypress', (evt) => {
+    evt.preventDefault();
+})
 
 keyboard.addEventListener('mousedown', pressKey);
 window.addEventListener('keydown', pressKey);
@@ -47,3 +52,28 @@ window.addEventListener('keyup', (evt) => {
         capsLockSwich(evt);
     }
 })
+
+window.addEventListener('keydown', controlHandler)
+
+function controlHandler(evt) {
+    window.removeEventListener('keyup', removeControlHandler);
+    if (evt.code === 'ControlLeft') {
+        window.addEventListener('keydown', spaceHandler)
+    }
+}
+
+function spaceHandler(evt) {
+    if (evt.code === 'Space') {
+        // console.log(evt.getModifierState('Space'))
+        changeLayout();
+        // window.removeEventListener('keydown', spaceHandler)
+    }
+
+    window.addEventListener('keyup', removeControlHandler)
+}
+
+function removeControlHandler(evt) {
+    if (evt.code === 'ControlLeft') {
+        window.removeEventListener('keydown', spaceHandler)
+    }
+}

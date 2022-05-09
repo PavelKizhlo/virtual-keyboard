@@ -6,6 +6,8 @@ function createKey(keyObj) {
         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
         'y', 'z'];
 
+    const funcKeys = ['Backspace', 'Tab', 'CapsLock', 'Enter', 'ShiftLeft', 'ShiftRight', 'Fn', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+
     let key = document.createElement('div');
     key.classList.add('key');
 
@@ -24,9 +26,12 @@ function createKey(keyObj) {
     } else if (typeof (+keyObj.engCaseDown) === 'number' && !isNaN(+keyObj.engCaseDown)) {
         key.classList.add(`Digit${keyObj.engCaseDown}`);
         key.setAttribute('data-code', `Digit${keyObj.engCaseDown}`);
-    } else {
+    } else if (funcKeys.includes(keyObj.code)) {
         key.classList.add(`${keyObj.code}`, 'func');
         key.setAttribute('data-code', `${keyObj.code}`);
+    } else {
+        key.classList.add(`${keyObj.code}`);
+        key.setAttribute('data-code', `${keyObj.code}`)
     }
 
     let keyTextEng = document.createElement('span');
