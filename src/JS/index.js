@@ -76,28 +76,26 @@ window.addEventListener('keyup', (evt) => {
     }
 })
 
-window.addEventListener('keydown', controlHandler)
+function changeLang(...codes) {
+    let pressed = new Set();
 
-function controlHandler(evt) {
-    window.removeEventListener('keyup', removeControlHandler);
-    if (evt.code === 'ControlLeft') {
-        window.addEventListener('keydown', spaceHandler)
-    }
-}
+    window.addEventListener('keydown', (evt) => {
+        pressed.add(evt.code);
 
-function spaceHandler(evt) {
-    if (evt.code === 'Space') {
-        // console.log(evt.getModifierState('Space'))
+        for (let code of codes) {
+            if (!pressed.has(code)) {
+                return;
+            }
+        }
+
+        pressed.clear();
+
         changeLayout();
-        // window.removeEventListener('keydown', spaceHandler)
-    }
+    });
 
-    window.addEventListener('keyup', removeControlHandler)
+    window.addEventListener('keyup', (evt) => {
+        pressed.delete(evt.code);
+    });
 }
 
-function removeControlHandler(evt) {
-    if (evt.code === 'ControlLeft') {
-        window.removeEventListener('keydown', spaceHandler)
-    }
-}
-
+changeLang('Space', 'ControlLeft')
