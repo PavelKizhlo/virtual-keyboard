@@ -5,15 +5,13 @@ import { addWindowListeners, addKeyListeners } from './listeners.js';
 let lang = localStorage.getItem('lang');
 
 if (lang === 'eng') {
-    createPage();
+  createPage();
 }
 
 if (lang === 'rus') {
-    createPage();
-    changeLayout();
-};
-
-
+  createPage();
+  changeLayout();
+}
 
 addWindowListeners();
 addKeyListeners();

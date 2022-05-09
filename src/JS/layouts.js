@@ -1,9 +1,14 @@
 import { Key } from './key';
 import { createArrowBlock } from './create-elements';
 
-const firstRow = [], secondRow = [], thirdRow = [], fourthRow = [], fithRow = [], arrowBlock = [];
+const firstRow = [];
+const secondRow = [];
+const thirdRow = [];
+const fourthRow = [];
+const fithRow = [];
+const arrowBlock = [];
 
-firstRow.push(new Key('`', '~', 'ё', 'Ё', 'Backquote',));
+firstRow.push(new Key('`', '~', 'ё', 'Ё', 'Backquote'));
 firstRow.push(new Key('1', '!', '1', '!'));
 firstRow.push(new Key('2', '@', '2', '"'));
 firstRow.push(new Key('3', '#', '3', '№'));
@@ -73,12 +78,6 @@ arrowBlock.push(new Key('&darr;', '&darr;', '&darr;', '&darr;', 'ArrowDown'));
 arrowBlock.push(new Key('&rarr;', '&rarr;', '&rarr;', '&rarr;', 'ArrowRight'));
 fithRow.push(createArrowBlock(arrowBlock));
 
-export { firstRow, secondRow, thirdRow, fourthRow, fithRow, arrowBlock };
-
-// const rows = [
-//     ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '&minus;', '=', 'delete'],
-//     ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
-//     ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'return'],
-//     ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
-//     ['fn', 'control', 'option', 'command', 'space', 'command', 'option']
-// ]
+export {
+  firstRow, secondRow, thirdRow, fourthRow, fithRow, arrowBlock
+};
