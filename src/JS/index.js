@@ -2,7 +2,17 @@ import { createPage } from './create-elements.js';
 import { pressKey } from './press.js';
 import { changeLayout, caseSwich, capsLockSwich } from './swich.js'
 
-createPage();
+let lang = localStorage.getItem('lang');
+
+if (lang === 'eng') {
+    createPage();
+}
+
+if (lang === 'rus') {
+    createPage();
+    changeLayout();
+};
+
 
 const keyboard = document.querySelector('.keyboard');
 const textarea = document.querySelector('#textarea');
@@ -56,13 +66,13 @@ capsLock.addEventListener('click', capsLockSwich);
 
 window.addEventListener('keydown', (evt) => {
     if (evt.code === 'CapsLock') {
-        capsLockSwich(evt);
+        capsLockSwich();
     }
 })
 
 window.addEventListener('keyup', (evt) => {
     if (evt.code === 'CapsLock') {
-        capsLockSwich(evt);
+        capsLockSwich();
     }
 })
 

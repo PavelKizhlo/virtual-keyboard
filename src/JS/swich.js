@@ -4,6 +4,13 @@ function changeLayout() {
 
     let keysRus = document.querySelectorAll('.rus');
     keysRus.forEach(key => key.classList.toggle('hidden'));
+
+    let testKey = document.querySelector('.eng');
+    if (testKey.classList.contains('hidden')) {
+        localStorage.setItem('lang', 'rus');
+    } else {
+        localStorage.setItem('lang', 'eng');
+    }
 }
 
 function caseSwich() {
@@ -20,9 +27,10 @@ function caseSwich() {
     ShiftRight.addEventListener('mouseup', caseSwich);
 }
 
-function capsLockSwich(evt) {
-    // let capsLock = document.querySelector('.CapsLock');
-    // capsLock.classList.toggle('key__pressed')
+function capsLockSwich() {
+    let capsLock = document.querySelector('.CapsLock');
+
+    capsLock.classList.toggle('key__pressed')
 
     let alphabetDownCase = document.querySelectorAll('.alphabet>.eng>.case-down');
     alphabetDownCase.forEach(key => key.classList.toggle('hidden'));

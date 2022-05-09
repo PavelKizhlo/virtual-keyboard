@@ -1,6 +1,10 @@
 function classRemove() {
     if (this instanceof MouseEvent) {
-        this.target.parentElement.parentElement.classList.remove('key__pressed');
+        let pressedKey = this.target.parentElement.parentElement;
+
+        if (pressedKey.dataset.code !== 'CapsLock') {
+            pressedKey.classList.remove('key__pressed');
+        }
     }
 
     if (this instanceof KeyboardEvent) {
@@ -43,7 +47,11 @@ function pressKey(evt) {
     if (evt instanceof MouseEvent) {
         if (evt.target.classList.contains('key__text')) {
             let pressedKey = evt.target.parentElement.parentElement;
-            pressedKey.classList.add('key__pressed');
+            // console.log(pressedKey)
+            if (pressedKey.dataset.code !== 'CapsLock') {
+                pressedKey.classList.add('key__pressed');
+            }
+
 
             simulatePress(evt);
 
@@ -54,7 +62,9 @@ function pressKey(evt) {
     if (evt instanceof KeyboardEvent) {
         let pressedKey = document.querySelector(`.${evt.code}`);
         if (pressedKey) {
-            pressedKey.classList.add('key__pressed');
+            if (pressedKey.dataset.code !== 'CapsLock') {
+                pressedKey.classList.add('key__pressed');
+            }
 
             window.addEventListener('keyup', this.classRemove);
         }
@@ -65,7 +75,7 @@ window.addEventListener('keydown', (evt) => {
     let pressedKey = document.querySelector(`.${evt.code}`);
     let currentLang = pressedKey.querySelector(':not(.hidden)>:not(.hidden)');
     let char = currentLang.querySelector(':not(.hidden)');
-    // console.log(char)
+
     if (pressedKey && !pressedKey.classList.contains('func')) {
         document.querySelector('#textarea').value += char.innerHTML;
     }
