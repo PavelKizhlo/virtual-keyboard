@@ -6,9 +6,7 @@ function changeLayout() {
     keysRus.forEach(key => key.classList.toggle('hidden'));
 }
 
-function caseSwich(evt) {
-    // window.removeEventListener('keyup', caseSwich)
-
+function caseSwich() {
     let ShiftLeft = document.querySelector('.ShiftLeft');
     let ShiftRight = document.querySelector('.ShiftRight');
 
@@ -20,14 +18,17 @@ function caseSwich(evt) {
 
     ShiftLeft.addEventListener('mouseup', caseSwich);
     ShiftRight.addEventListener('mouseup', caseSwich);
-
-    // window.addEventListener('keyup', caseSwich)
-    // window.addEventListener('keyup', (evt) => {
-    if (evt.code === 'ShiftLeft' || evt.code === 'ShiftRight') {
-        window.addEventListener('keyup', caseSwich)
-    }
-    // })
-    console.log(evt)
 }
 
-export { changeLayout, caseSwich } 
+function capsLockSwich(evt) {
+    // let capsLock = document.querySelector('.CapsLock');
+    // capsLock.classList.toggle('key__pressed')
+
+    let alphabetDownCase = document.querySelectorAll('.alphabet>.eng>.case-down, .alphabet>.rus>.case-down');
+    alphabetDownCase.forEach(key => key.classList.toggle('hidden'));
+
+    let alphabetUpCase = document.querySelectorAll('.alphabet>.eng>.case-up, .alphabet>.rus>.case-up');
+    alphabetUpCase.forEach(key => key.classList.toggle('hidden'));
+}
+
+export { changeLayout, caseSwich, capsLockSwich } 

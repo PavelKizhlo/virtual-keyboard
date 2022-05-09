@@ -3,11 +3,9 @@ function pressKey(evt) {
         if (evt.target.classList.contains('key__text')) {
             evt.target.parentElement.parentElement.classList.add('key__pressed');
 
-            // simulatePress(evt);
+            simulatePress(evt);
 
-            document.addEventListener('mouseup', () => {
-                evt.target.parentElement.parentElement.classList.remove('key__pressed');
-            })
+            document.addEventListener('mouseup', classRemove);
         }
     };
 
@@ -16,21 +14,29 @@ function pressKey(evt) {
         if (pressedKey) {
             pressedKey.classList.add('key__pressed');
 
-            window.addEventListener('keyup', () => {
-                pressedKey.classList.remove('key__pressed');
-            })
+            window.addEventListener('keyup', classRemove)
         }
-        // console.log(evt)
     }
 }
 
-// function simulatePress(evt) {
-// let keyDown = new KeyboardEvent('keydown', { code: evt.target.parentElement.dataset.code });
-// window.dispatchEvent(keyDown);
+function classRemove(evt) {
+    if (evt instanceof MouseEvent) {
+        evt.target.parentElement.parentElement.classList.remove('key__pressed');
+    }
 
-// console.log(keyDown)
+    if (evt instanceof KeyboardEvent) {
+        let pressedKey = document.querySelector(`.${evt.code}`);
+        pressedKey.classList.remove('key__pressed');
+    }
+}
 
-// document.querySelector('#textarea').value += 'x';
-// }
+function simulatePress(evt) {
+    let key = evt.target.parentElement.parentElement;
+    let currentValue = evt.target.innerHTML;
+
+    if (!key.classList.contains('func')) {
+        document.querySelector('#textarea').value += currentValue;
+    }
+}
 
 export { pressKey };
