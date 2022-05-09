@@ -29,6 +29,10 @@ function simulatePress(evt) {
     if (key.dataset.code === 'Enter') {
         textarea.value += '\n';
     }
+
+    if (key.dataset.code === 'Tab') {
+        textarea.value += '    ';
+    }
 }
 
 function pressKey(evt) {

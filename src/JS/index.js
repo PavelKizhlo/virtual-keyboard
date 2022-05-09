@@ -39,6 +39,11 @@ window.addEventListener('keydown', (evt) => {
     if ((evt.code === 'Space')) {
         textarea.value += ' ';
     }
+
+    if ((evt.code === 'Tab')) {
+        evt.preventDefault();
+        textarea.value += '    ';
+    }
 })
 
 window.addEventListener('keyup', (evt) => {
