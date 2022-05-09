@@ -47,7 +47,7 @@ function addWindowListeners() {
     window.addEventListener('keydown', (evt) => {
         pressed.add(evt.code);
 
-        if (!pressed.has('Space') || !pressed.has('ControlLeft')) {
+        if (!pressed.has('AltLeft') || !pressed.has('ControlLeft')) {
             return;
         }
 

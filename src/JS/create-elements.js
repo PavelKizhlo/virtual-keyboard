@@ -99,7 +99,7 @@ function createPage() {
 <textarea class="textarea" id="textarea" cols="52" rows="5"></textarea>
 <div class="keyboard"></div>
 <p class="system">Клавиатура создана в операционной системе Mac OS</p>
-<p class="language">Для переключения языка: комбинация Ctrl + Space <br> или клавиша Fn (доступна только для клика, так как является системной клавишей)</p>
+<p class="language">Для переключения языка: комбинация Ctrl + Option (left) <br> или клавиша Fn (доступна только для клика, так как является системной клавишей)</p>
 </div>`;
 
     let keyboard = document.querySelector('.keyboard');
