@@ -31,6 +31,14 @@ window.addEventListener('keydown', (evt) => {
     if (evt.code === 'ShiftLeft' || evt.code === 'ShiftRight') {
         caseSwich(evt);
     }
+
+    if ((evt.code === 'Enter')) {
+        textarea.value += '\n';
+    }
+
+    if ((evt.code === 'Space')) {
+        textarea.value += ' ';
+    }
 })
 
 window.addEventListener('keyup', (evt) => {
@@ -77,3 +85,4 @@ function removeControlHandler(evt) {
         window.removeEventListener('keydown', spaceHandler)
     }
 }
+

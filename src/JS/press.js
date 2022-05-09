@@ -10,11 +10,24 @@ function classRemove() {
 }
 
 function simulatePress(evt) {
+    let textarea = document.querySelector('#textarea');
     let key = evt.target.parentElement.parentElement;
     let currentValue = evt.target.innerHTML;
 
     if (!key.classList.contains('func')) {
-        document.querySelector('#textarea').value += currentValue;
+        textarea.value += currentValue;
+    }
+
+    if (key.dataset.code === 'Space') {
+        textarea.value += ' ';
+    }
+
+    if (key.dataset.code === 'Backspace') {
+        textarea.value = textarea.value.slice(0, -1);
+    }
+
+    if (key.dataset.code === 'Enter') {
+        textarea.value += '\n';
     }
 }
 
