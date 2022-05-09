@@ -2,9 +2,13 @@ import { Key } from './key';
 import { firstRow, secondRow, thirdRow, fourthRow, fithRow, arrowBlock } from './layouts.js';
 
 function createKey(keyObj) {
-    const alphabetEn = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+    const alphabetEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
         'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
         'y', 'z'];
+
+    const alphabetRus = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л',
+        'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч',
+        'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я']
 
     const funcKeys = ['Backspace', 'Tab', 'CapsLock', 'Enter', 'ShiftLeft', 'ShiftRight', 'Fn', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
@@ -20,7 +24,7 @@ function createKey(keyObj) {
     key.append(keyEng);
     key.append(keyRus);
 
-    if (alphabetEn.includes(keyObj.engCaseDown)) {
+    if (alphabetEng.includes(keyObj.engCaseDown)) {
         key.classList.add(`Key${keyObj.engCaseDown.toUpperCase()}`, 'alphabet');
         key.setAttribute('data-code', `Key${keyObj.engCaseDown.toUpperCase()}`);
     } else if (typeof (+keyObj.engCaseDown) === 'number' && !isNaN(+keyObj.engCaseDown)) {
@@ -32,6 +36,10 @@ function createKey(keyObj) {
     } else {
         key.classList.add(`${keyObj.code}`);
         key.setAttribute('data-code', `${keyObj.code}`)
+    }
+
+    if (alphabetRus.includes(keyObj.rusCaseDown)) {
+        key.classList.add('alphabet-rus');
     }
 
     let keyTextEng = document.createElement('span');

@@ -24,10 +24,16 @@ function capsLockSwich(evt) {
     // let capsLock = document.querySelector('.CapsLock');
     // capsLock.classList.toggle('key__pressed')
 
-    let alphabetDownCase = document.querySelectorAll('.alphabet>.eng>.case-down, .alphabet>.rus>.case-down');
+    let alphabetDownCase = document.querySelectorAll('.alphabet>.eng>.case-down');
     alphabetDownCase.forEach(key => key.classList.toggle('hidden'));
 
-    let alphabetUpCase = document.querySelectorAll('.alphabet>.eng>.case-up, .alphabet>.rus>.case-up');
+    alphabetDownCase = document.querySelectorAll('.alphabet-rus>.rus>.case-down');
+    alphabetDownCase.forEach(key => key.classList.toggle('hidden'));
+
+    let alphabetUpCase = document.querySelectorAll('.alphabet>.eng>.case-up');
+    alphabetUpCase.forEach(key => key.classList.toggle('hidden'));
+
+    alphabetUpCase = document.querySelectorAll('.alphabet-rus>.rus>.case-up');
     alphabetUpCase.forEach(key => key.classList.toggle('hidden'));
 }
 
