@@ -1,13 +1,12 @@
-# virtual-keyboard
-RS School task
+# Virtual-keyboard (RS School task)
+
+### Deployment: https://pavelkizhlo.github.io/virtual-keyboard/dist
 
 Task:
 https://github.com/rolling-scopes-school/tasks/blob/master/tasks/virtual-keyboard/virtual-keyboard-en.md
 
 
 App screenshot:<img width="750" alt="Снимок экрана 2022-09-22 в 12 16 28" src="https://user-images.githubusercontent.com/94741768/191708692-d6a7b157-868a-4a80-85d9-608af99ab6fe.png">
-
-Deploy: https://pavelkizhlo.github.io/virtual-keyboard/dist
 
 Done 10.05.22 (deadline 10.05.22)
 
